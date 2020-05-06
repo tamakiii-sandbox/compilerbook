@@ -7,7 +7,7 @@
 make -f docker.mk help
 make -f docker.mk install
 make -f docker.mk build
-docker run -it --rm compilerbook bash
+docker run -it --rm -v $(pwd):/usr/local/app/compilerbook compilerbook bash
 ~~~
 
 Update `Dockerfile`
