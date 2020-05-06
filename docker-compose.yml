@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  compilerbook:
+    build:
+      context: .
+      args:
+        TIME_ZONE: ${TIME_ZONE:-UTC}
+        DEBIAN_FRONTEND: ${DEBIAN_FRONTEND:-noninteractive}
+    volumes:
+      - .:/user/local/app/compierbook

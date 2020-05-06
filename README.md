@@ -6,8 +6,9 @@
 ~~~sh
 make -f docker.mk help
 make -f docker.mk install
+# edit `.env` as you like
 make -f docker.mk build
-docker run -it --rm -v $(pwd):/usr/local/app/compilerbook compilerbook bash
+docker-compose run --rm compilerbook bash
 ~~~
 
 Update `Dockerfile`

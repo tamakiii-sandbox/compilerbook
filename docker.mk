@@ -12,21 +12,22 @@ help:
 
 install: \
 	dependencies \
-	Dockerfile
+	.env
 
 dependencies:
 	type docker > /dev/null
+	type docker-compose > /dev/null
 	type curl > /dev/null
+
+.env:
+	echo "TIME_ZONE=$(TIME_ZONE)" $@
+	echo "DEBIAN_FRONTEND=$(DEBIAN_FRONTEND)" $@
 
 Dockerfile:
 	curl https://www.sigbus.info/compilerbook/Dockerfile > $@
 
 build:
-	docker build \
-		-t $(NAME) \
-		--build-arg TIME_ZONE=$(TIME_ZONE) \
-		--build-arg DEBIAN_FRONTEND=$(DEBIAN_FRONTEND) \
-		.
+	docker-compose build
 
 clean:
 	docker image rm compilerbook
