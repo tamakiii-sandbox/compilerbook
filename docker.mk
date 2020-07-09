@@ -20,8 +20,8 @@ dependencies:
 	type curl > /dev/null
 
 .env:
-	echo "TIME_ZONE=$(TIME_ZONE)" $@
-	echo "DEBIAN_FRONTEND=$(DEBIAN_FRONTEND)" $@
+	echo "TIME_ZONE=$(TIME_ZONE)" > $@
+	echo "DEBIAN_FRONTEND=$(DEBIAN_FRONTEND)" >> $@
 
 Dockerfile:
 	curl https://www.sigbus.info/compilerbook/Dockerfile > $@
