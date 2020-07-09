@@ -20,7 +20,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/
 
 RUN ln -snf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime && \
-    echo ${TIME_ZONE} > /etc/timezone 
+    echo ${TIME_ZONE} > /etc/timezone
 
 RUN adduser --disabled-password --gecos '' user && \
     echo 'user ALL=(root) NOPASSWD:ALL' > /etc/sudoers.d/user
