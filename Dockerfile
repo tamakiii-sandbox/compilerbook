@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-WORKDIR /home/user
+WORKDIR /usr/local/app/compilerbook
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG TIME_ZONE=UTC
