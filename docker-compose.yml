@@ -6,5 +6,10 @@ services:
       args:
         TIME_ZONE: ${TIME_ZONE:-UTC}
         DEBIAN_FRONTEND: ${DEBIAN_FRONTEND:-noninteractive}
+    working_dir: /home/usr/book
     volumes:
-      - .:/user/local/app/compierbook
+      - .:/home/usr/book
+      - home:/home/user
+
+volumes:
+  home:

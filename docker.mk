@@ -1,4 +1,4 @@
-.PHONY: help install dependencies build clean
+.PHONY: help install dependencies build bash clean
 
 export DOCKER_BUILDKIT := 1
 export COMPOSE_DOCKER_CLI_BUILD := 1
@@ -28,6 +28,9 @@ Dockerfile:
 
 build:
 	docker-compose build
+
+bash:
+	docker-compose run --rm compilerbook $@ -l
 
 clean:
 	docker image rm compilerbook
