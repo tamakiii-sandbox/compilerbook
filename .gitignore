@@ -1,2 +1,7 @@
+*~
+*.o
+tmp*
+a.out
 /.env
 /docker-compose.override.yml
+/9cc
