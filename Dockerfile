@@ -17,7 +17,14 @@ RUN apt-get update && \
       tzdata \
       && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/
+    rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      less \
+      && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN ln -snf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime && \
     echo ${TIME_ZONE} > /etc/timezone
