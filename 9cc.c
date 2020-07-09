@@ -26,7 +26,7 @@ int main(int argc, char **argv)
       printf("  sub rax, %ld\n", strtol(p, &p, 10));
       continue;
     }
-    fprintf(stderr, "Unexpected charactor occurred: '\%c'\n", *p);
+    fprintf(stderr, "Unexpected charactor occurred: '%c'\n", *p);
     return 1;
   }
 
