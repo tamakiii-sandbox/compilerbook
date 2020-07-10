@@ -2,27 +2,30 @@
 
 # set -x
 
-assert() {
-  expected="$1"
-  input="$2"
-
-  ./9cc "$input" > tmp.s
+test() {
+  ./9cc "$1" > tmp.s
   cc -o tmp tmp.s
   ./tmp
-  actual="$?"
 
-  if [ "$actual" = "$expected" ]; then
-    echo "input => $actual"
+  assert "$?" "$2"
+}
+assert() {
+  if [ "$1" = "$2" ]; then
+    echo "input => \"$1\""
   else
-    echo "input => $actual expected, but got $actual"
+    echo "input => \"$2\" expected, but got \"$1\""
     exit 1
   fi
 }
 
 # assert 0 1
-assert 0 0
-assert 42 42
-assert 30 '5+29-4'
-assert 21 '5+20-4'
+test 0 0
+test 42 42
+test '5+29-4' 30
+test '5+20-4' 21
+test " 12 + 34 - 5 " 41
+assert \
+  "$(test "12 ++ 34" 0 2>&1 >&0)" \
+  "$(echo -e "12 ++ 34\n    ^ Not a number")"
 
 echo OK
