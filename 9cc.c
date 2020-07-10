@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <ctype.h>
 #include <stdarg.h>
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 typedef enum {
@@ -67,9 +67,7 @@ int expect_number() {
   return val;
 }
 
-bool at_eof() {
-  return token->kind == TK_EOF;
-}
+bool at_eof() { return token->kind == TK_EOF; }
 
 Token *new_token(TokenKind kind, Token *cur, char *str) {
   Token *tok = calloc(1, sizeof(Token));
@@ -105,8 +103,7 @@ Token *tokenize(char *p) {
   return head.next;
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   if (argc != 2) {
     error("Invalid number of arguments");
     return 1;
